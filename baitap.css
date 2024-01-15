@@ -1,0 +1,11 @@
+.wap{
+    border: 1px solid #27028e;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+h3{
+    color: rgb(242, 9, 164);
+}
