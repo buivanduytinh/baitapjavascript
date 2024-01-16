@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newproduct</title>
+    <style type="text/css">
+        table {
+  width: 100%; /* Adapt to viewport for responsiveness */
+  margin: 1rem auto; /* Center and add spacing */
+  border-collapse: collapse; /* Ensure borders don't double up */
+  border: 1px solid #ddd; /* Lighter border color */
+  border-radius: 5px; /* Soften edges */
+  font-family: sans-serif; /* Clean font for better readability */
+}
+
+#tbl tr {
+  height: 35px; /* Slightly more generous row height */
+}
+
+#tbl tr th,
+#tbl tr td {
+  padding: 10px; /* Add padding for content spacing */
+  text-align: left;
+  border-bottom: 1px solid #eee; /* Lighter internal border */
+}
+
+#tbl tr:nth-child(even) {
+  background-color: #f5f5f5; /* Alternate row shading for visual clarity */
+}
+
+#tbl tr:last-child td {
+  border-bottom: none;
+}
+
+/* Additional styling examples */
+#tbl th {
+  background-color: #f0f0f0; /* Header background */
+  text-align: left; /* Header alignment */
+  font-weight: bold; /* Bold header text */
+}
+
+#tbl tr:hover {
+  background-color: #e5f5e5; /* Hover effect for interactivity */
+}
+    </style>
+
+</head>
+<body>
+    <h1>New product</h1>
+    <hr />
+    <form name="frm">
+        <p>
+            <label>
+                Product name
+                <input type="text" name="pname" id="pname" />
+            </label>
+            <label>
+                Quantity
+                <input type="text" name="qty" id="qty" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Unit Price
+                <input type="text" name="up" id="up" />
+            </label>
+            <label>
+                Discount
+                <input type="text" name="dc" id="dc" />
+            </label>
+        </p>
+        <p>
+            <button type="button" onclick="sell()">Sell</button>
+            <button type="button">Cancel</button>
+        </p>
+    </form>
+    <table id="tbl">
+        <tr>
+            <th>ID</th>
+            <th>Product name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Discount</th>
+            <th>subtotal</th>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        var id=0;
+        function sell()
+        {
+            id++;
+            var pname = frm.pname.value;
+            var qty = frm.qty.value;
+            var price = frm.up.value;
+            var dc = frm.dc.value;
+            var sub = qty*price*(1-dc/100);
+            var row ="<tr>";
+            row += "<td>" + id +"</td>";
+            row += "<td>" + pname +"</td>";
+            row += "<td>" + qty +"</td>";
+            row += "<td>" + price +"</td>";
+            row += "<td>" + dc +"</td>";
+            row += "<td>" + sub +"</td>";
+            row +="</tr>";
+            document.getElementById("tbl").innerHTML += row;
+        }
+    </script>
+    
+</body>
+</html>
