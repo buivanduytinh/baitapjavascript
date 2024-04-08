@@ -1,4 +1,31 @@
    var arr = [];
+        function searchProduct() {
+            var keyword = document.getElementById('searchInput').value.toLowerCase(); // Lấy từ khóa tìm kiếm và chuyển thành chữ thường
+            var filteredArr = arr.filter(function(item) {
+            // Kiểm tra xem từ khóa có xuất hiện trong tên sản phẩm không
+            return item.product.toLowerCase().includes(keyword);
+            });
+            // Hiển thị chỉ các sản phẩm thỏa mãn từ khóa tìm kiếm
+            var html = '';
+            for (var i = 0; i < filteredArr.length; i++) {
+            var n = i + 1;
+                html += "<tr>";
+                html += "<td>" + n + "</td>";
+                html += "<td>" + filteredArr[i].id + "</td>";
+                html += "<td>" + filteredArr[i].product + "</td>";
+                html += "<td>" + filteredArr[i].quantity + "</td>";
+                html += "<td>" + filteredArr[i].price + "</td>";
+            if (filteredArr[i].image) {
+                html += "<td><img src='" + URL.createObjectURL(filteredArr[i].image) + "' style='max-width:100px;max-height:100px;'></td>";
+            } else {
+                html += "<td>No Image</td>";
+            }
+                html += "<td>" + (parseFloat(filteredArr[i].quantity) * parseFloat(filteredArr[i].price)) + "</td>";
+                html += "<td><button onclick='update(" + arr.indexOf(filteredArr[i]) + ")'>Cập nhật</button> <button onclick='remove(" + arr.indexOf(filteredArr[i]) + ")'>Xóa</button></td>";
+                html += "</tr>";
+            }
+            document.getElementById('tbl').innerHTML = html;
+        }
 
         function save() {
             var a = {

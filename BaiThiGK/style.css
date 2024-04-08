@@ -1,44 +1,96 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #f4f4f4;
+    }
+    
+    .container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-}
-
-input[type="text"], input[type="button"], input[type="file"] {
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 5px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type="button"] {
-    background-color: #4CAF50;
-    color: white;
+    }
+    
+    h2 {
+    color: red;
+    text-align: center;
+    }
+    
+    input[type="button"] {
+    padding: 10px;
+    background-color: green;
+    color: #fff;
     border: none;
+    border-radius: 35px;
     cursor: pointer;
-}
-
-input[type="button"]:hover {
-    background-color: #45a049;
-}
-
-table {
+    }
+    
+    input[type="buttonADD"] {
+    padding: 10px;
+    max-width: 55px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    }
+    
+    input[type="text"] {
+    width: 100%;
+    max-width: 240px;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    border: 4px solid #08b8cb;
+    border-radius: 35px;
+    box-sizing: border-box;
+    }
+    
+    input[type="file"],
+    select {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    margin-bottom: 50px;
+    border: 1px solid #08b8cb;
+    border-radius: 5px;
+    box-sizing: border-box;
+    }
+    
+    input[type="number"],
+    select {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #08b8cb;
+    border-radius: 5px;
+    box-sizing: border-box;
+    }
+    
+    input[type="button"]:hover {
+    background-color: #213b57;
+    }
+    
+    table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
+    }
+    
+    table th,
+    table td {
+    padding: 10px;
+    border: 1px solid #3f3b6e;
     text-align: center;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-}
+    }
+    
+    thead {
+    background-color: #1f3459;
+    color: #fff;
+    }
+    
+    tbody tr:nth-child(even) {
+    background-color: #ffffff;
+    }
+    
+    tbody tr:hover {
+    background-color: #ffffff;
+    }
