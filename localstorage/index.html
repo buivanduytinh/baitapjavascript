@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<style>
+    html {
+        scroll-padding-top: 7rem;
+        scroll-behavior: smooth;
+    }
+</style>
+
+<body class="pb-20" onload="handleRenderProducts()">
+    <nav class="container mx-auto flex items-center justify-start py-3">
+        <div class="flex items-center gap-3">
+            <img src="https://res.cloudinary.com/dsziocv6v/image/upload/v1707967907/brand_b6lyaa.jpg" alt="logo"
+                class="w-10 h-10 rounded-md" />
+            <p class="text-base">Shop DEBUG</p>
+        </div>
+        <ul class="flex items-center flex-1 justify-center gap-3.5"></ul>
+        <div>
+            <input type="text" placeholder="Tìm kiếm..."
+                class="px-3 py-1.5 border border-slate-600 rounded-md outline-none text-base" />
+            <button class="border border-red-500 px-3 py-1.5 text-red-500 rounded-md text-base">Tìm kiếm</button>
+        </div>
+    </nav>
+
+    <section class="container mx-auto">
+        <h1 class="mt-10 text-3xl mb-8 text-center uppercase font-medium text-red-600" id="title">Thêm sản phẩm</h1>
+
+        <form class="max-w-sm mx-auto" name="productInfo" action="#">
+            <div class="mb-5">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Product Name</label>
+                <input type="name" id="name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Áo" required />
+            </div>
+            <div class="mb-5">
+                <label for="code" class="block mb-2 text-sm font-medium text-gray-900 ">Product Code</label>
+                <input type="code" id="code"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="VN01" required />
+            </div>
+            <div class="mb-5">
+                <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Product Image</label>
+                <input
+                    class="block w-full text-sm text-gray-900 border p-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                    id="file_input" type="file" name="file_input">
+            </div>
+            <div class="mb-5 flex justify-between">
+                <div>
+                    <label for="old-price" class="block mb-2 text-sm font-medium text-gray-900">Old Price</label>
+                    <input type="text" id="old-price" name="oldPrice"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        placeholder="50.000 vnđ" required />
+                </div>
+                <div>
+                    <label for="new-price" class="block mb-2 text-sm font-medium text-gray-900">New Price</label>
+                    <input type="text" id="new-price" name="newPrice"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        placeholder="50.000 vnđ" required />
+                </div>
+                <input type="hidden" id="idProductUpdate" />
+            </div>
+            <button 
+                type="button"
+                id="btn-create"
+                onclick="handleAddProduct()"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add</button>
+            <button 
+                type="button"
+                id="btn-update"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center hidden" onclick="updateProduct()">Update</button>
+            <button 
+                type="button"
+                class="text-white bg-red-400 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" onclick="updateProduct()">Reset</button>
+        </form>
+    </section>
+
+    <section class="container mx-auto mt-20">
+        <h1 class="mt-10 text-3xl text-center uppercase font-medium text-red-600">Thời trang</h1>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Id
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Code
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Img
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Old_Price
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            New_Price
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="product"></tbody>
+            </table>
+        </div>
+    </section>
+    <script src="./app.js"></script>
+</body>
+
+</html>
